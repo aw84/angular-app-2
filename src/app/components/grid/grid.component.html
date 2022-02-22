@@ -1,5 +1,1 @@
-<div>
-    <tr *ngFor="let image of images">
-        <app-cell [image]="image"></app-cell>
-    </tr>
-</div>
+<app-cell *ngFor="let image of images" [image]="image"></app-cell>

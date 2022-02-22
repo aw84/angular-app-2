@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Image } from 'src/app/Image';
+import { ImageService } from 'src/app/services/image.service';
 
 
 @Component({
@@ -9,13 +10,11 @@ import { Image } from 'src/app/Image';
 })
 export class GridComponent implements OnInit {
   images: Image[] = [];
-  constructor() { }
+
+  constructor(private imageService: ImageService) { }
 
   ngOnInit(): void {
-    this.images = [
-      { name: 'abc', small: 'http://localhost:5000/img/small/1' },
-      { name: 'def', small: 'http://localhost:5000/img/small/2' }
-    ]
+    this.imageService.getSmall().subscribe((i) => this.images = i);
   }
 
 }
