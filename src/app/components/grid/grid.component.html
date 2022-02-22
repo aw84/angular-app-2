@@ -1,5 +1,5 @@
 <div>
-    <tr *ngFor="let n of images">
-        <app-cell small={{n.small}} name={{n.name}}></app-cell>
+    <tr *ngFor="let image of images">
+        <app-cell [image]="image"></app-cell>
     </tr>
 </div>

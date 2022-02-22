@@ -7,15 +7,15 @@ import { Image } from 'src/app/Image';
   styleUrls: ['./cell.component.css']
 })
 export class CellComponent implements OnInit {
-  @Input() name!: string;
-  @Input() small!: string;
-  image!: Image;
+  // @Input() name!: string;
+  // @Input() small!: string;
+  @Input() image!: Image;
   constructor() {
     
   }
 
   ngOnInit(): void {
-    this.image = { name: this.name, small: this.small }
+    // this.image = { name: this.name, small: this.small }
   }
 
 }
