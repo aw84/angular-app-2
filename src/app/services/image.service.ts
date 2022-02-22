@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Image } from '../Image';
+import { Image, ServerResponse } from '../Image';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
 
-  constructor() { }
+  private apiUrl: string = 'http://localhost:5000/image'
 
-  getSmall(): Observable<Image[]> {
-    const i = of([
-      { name: 'abc', small: 'http://localhost:5000/img/small/1' },
-      { name: 'def', small: 'http://localhost:5000/img/small/2' }
-    ]);
-    return i;
+  constructor(private httpClient: HttpClient) { }
+
+  getSmall(): Observable<ServerResponse<Image>> {
+    return this.httpClient.get<ServerResponse<Image>>(this.apiUrl + '/small')
   }
+
 }

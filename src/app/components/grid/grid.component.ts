@@ -14,7 +14,7 @@ export class GridComponent implements OnInit {
   constructor(private imageService: ImageService) { }
 
   ngOnInit(): void {
-    this.imageService.getSmall().subscribe((i) => this.images = i);
+    this.imageService.getSmall().subscribe((i) => this.images = i.items);
   }
 
 }
